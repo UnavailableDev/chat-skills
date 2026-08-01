@@ -31,9 +31,9 @@ specification or dictionary, and it is not tied to English.
 The goal is a single thing: **remove vagueness and produce direct, clear
 output.** Every rule below serves that goal.
 
-A provisional name/command for this skill: `clear-tech`. Rename freely —
-"STE" was dropped because this skill doesn't claim compliance with the
-real ASD-STE100 standard.
+This skill is named `clear-tech`. It was not called "STE" because that
+name implies compliance with the actual ASD-STE100 specification, which
+this skill does not reproduce.
 
 ## How this skill is invoked
 
