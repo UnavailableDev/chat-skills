@@ -20,7 +20,7 @@ description: >-
 
 # Clear Tech — Clear Technical Language for Technical Content
 
-Rewrite or compose technical prose (descriptions, procedures, error messages,
+Rewrite or compose technical writing (descriptions, procedures, error messages,
 docs) in a Clear Technical Language (CTL) style. This skill is inspired by
 the controlled-language discipline used in technical/maintenance writing
 (Simplified Technical English / ASD-STE100) — one instruction per sentence,
@@ -72,12 +72,23 @@ themselves.
 Before rewriting anything, identify and freeze these — copy them verbatim,
 do not simplify or paraphrase them:
 
-- Code blocks, inline code, commands, file paths, flags, config keys
+- Code blocks, inline code, commands, file paths and names, flags, config keys
 - Exact quotes (from people, specs, logs, error strings)
 - Numbers, units, versions, product/API/variable names
 - Any technical fact, value, or claim in the source
 
-Only the connecting prose — sentence structure, verbs, connectors,
+**Exception — code and docstrings.** This exception applies only when
+writing or editing code is already part of the task — refactoring a
+function, adding a docstring, writing new code, or directly rewriting an
+existing comment. Comments and docstrings are text for the reader, not
+code the machine parses, so CTL rules apply to them. Only the code
+itself — the part that executes or is machine-parsed — stays frozen. Do
+not go through a file rewriting unrelated comments the user didn't ask
+about; the exception says CTL applies to code text you touch, not that
+touching code text is the goal.
+
+
+Only the connecting text — sentence structure, verbs, connectors,
 hedging language — gets constrained. Never invent or drop technical
 content to make a sentence shorter or simpler.
 
