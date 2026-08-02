@@ -163,6 +163,7 @@ every time.
 | Instead of (avoid — ambiguous/synonym pile-up) | Use (approved) |
 |---|---|
 | verify, confirm, ensure, validate | make sure / check |
+| prose | text / writing |
 | commence, initiate, begin (as verb start) | start |
 | terminate, halt, discontinue | stop |
 | utilize, leverage, employ | use |
@@ -173,8 +174,8 @@ every time.
 | modify, alter | change |
 | eliminate, remove (context: delete) | remove |
 | indicate, denote, signify | show |
-| facilitate | help / make possible (rewrite) |
-| subsequently, thereafter | after that / then |
+| facilitate | help / make [X] easier |
+| subsequently, thereafter | then (the next step in a sequence) / after [duration] (e.g. "after 20 seconds") — not interchangeable |
 | approximately | about |
 | sufficient | enough |
 | numerous | many |
@@ -194,10 +195,12 @@ every time.
 | occurred, has occurred | happened (simple past) |
 | will be able to | can (future context: will) |
 | in the majority of cases | usually |
-| additional | more / another |
+| additional | more / different / add / again |
 | optimal, optimum | best |
 | approximately, roughly | about |
 | an error may have occurred | name the actual failure: "X failed" |
+| yourself | you |
+| finding | result |
 
 Verbs to prefer generally: **do, make, get, use, start, stop, check, make
 sure, find, show, tell, give, put, keep, send, open, close, connect,
