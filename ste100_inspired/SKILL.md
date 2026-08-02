@@ -9,8 +9,8 @@ description: >-
   Simplified Technical English / ASD-STE100 but not a reproduction of
   that standard, and not English-only — apply the same discipline in
   whatever language the user is writing in. Trigger on requests for
-  "simplified technical English," "STE," "ASD-STE100," "clear technical
-  language," or plain/direct technical writing, and proactively for
+  "simplified technical English", "STE", "ASD-STE100", "clear technical
+  language", or plain/direct technical writing, and proactively for
   engineering/coding/troubleshooting content needing clarity. Two modes:
   (1) one-off rewrite of specific text — scoped to that text; (2) manual
   activation for the conversation — applies to ALL model output until
@@ -31,7 +31,7 @@ language, not only English.
 The goal is simple: **remove vagueness. Produce direct, clear output.**
 Every rule below supports this goal.
 
-The skill is named `clear-tech`, not "STE." The name "STE" would imply
+The skill is named `clear-tech`, not STE. The name STE would imply
 compliance with the actual ASD-STE100 specification. This skill does not
 reproduce that specification.
 
@@ -119,7 +119,7 @@ recurring ways content sneaks into a rewrite:
 
 ### Sentences
 1. **Write one instruction or one fact per sentence.** Do not join two
-   actions or two claims with "and," "which," or a comma splice. Split
+   actions or two claims with "and", "which", or a comma splice. Split
    them into separate sentences.
 2. **Limit descriptive sentences to about 25 words. Limit procedural
    (instruction) sentences to about 20 words.** If a sentence runs
@@ -135,17 +135,17 @@ recurring ways content sneaks into a rewrite:
    fidelity invariant above.
 4. **Use simple tenses only: simple present, simple past, simple future
    ("will").** Avoid present perfect ("has occurred"), past perfect, and
-   continuous or progressive forms. Write "processes," not "is
-   processing."
+   continuous or progressive forms. Write "processes", not "is
+   processing".
 5. **Use one verb form per meaning. Do not stack modals.** Do not pile
-   up "may," "might," "could," and "should" in one sentence. State the
+   up "may", "might", "could", and "should" in one sentence. State the
    condition first. Then state the direct result. Write "If X, the tool
    does Y."
 6. **Write conditionals as separate IF/THEN sentences.** Do not bury a
    condition in a subordinate clause. Write "If the strategy allows
    automatic resolution, the tool resolves the conflict." Do not write
    "...which it may resolve depending on configuration."
-7. **Do not drop words for brevity.** Keep articles ("the," "a") and full
+7. **Do not drop words for brevity.** Keep articles ("the", "a") and full
    clauses. CTL favors clarity over compactness.
 8. **Limit multi-word nouns to 3 words.** "user account sync error" is
    fine. Longer noun stacks need a preposition or a rewrite: "error in
@@ -158,8 +158,8 @@ recurring ways content sneaks into a rewrite:
    table below.
 10. **Do not vary words for style.** Technical writing does not avoid
     repetition. Reuse the same word for the same concept every time.
-11. **Avoid vague hedges**: "may," "possibly," "could be," "attempt to,"
-    "try to." State what happens. Or state the condition under which it
+11. **Avoid vague hedges**: "may", "possibly", "could be", "attempt to",
+    "try to". State what happens. Or state the condition under which it
     happens. "The tool will attempt to sync" → "The tool starts the
     sync." This states the action taken. It does not state a guaranteed
     result, because the sync can still fail.
@@ -207,7 +207,7 @@ meaning-cluster. Use it every time.
 | a large number of | many |
 | at this point in time | now |
 | for the purpose of | for / to |
-| implement | do / make (be specific: "add," "build," "install") |
+| implement | do / make (be specific: "add", "build", "install") |
 | perform, execute (an action) | do |
 | occurred, has occurred | happened (simple past) |
 | will be able to | can (future context: will) |
