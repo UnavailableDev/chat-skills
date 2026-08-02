@@ -20,32 +20,33 @@ description: >-
 
 # Clear Tech — Clear Technical Language for Technical Content
 
-Rewrite or compose technical writing (descriptions, procedures, error messages,
-docs) in a Clear Technical Language (CTL) style. This skill is inspired by
-the controlled-language discipline used in technical/maintenance writing
-(Simplified Technical English / ASD-STE100) — one instruction per sentence,
-active voice, plain consistent words — but it is a practical distillation
-for general technical writing, not a reproduction of any official
-specification or dictionary, and it is not tied to English.
+This skill rewrites or writes technical text in Clear Technical Language
+(CTL). CTL applies to descriptions, procedures, error messages, and other
+docs. Maintenance and technical writers use a similar controlled-language
+method (Simplified Technical English / ASD-STE100). This skill takes that
+method and adapts it for general technical writing. This skill does not
+copy the official ASD-STE100 specification or dictionary. This skill
+works in any language, not only English.
 
-The goal is a single thing: **remove vagueness and produce direct, clear
-output.** Every rule below serves that goal.
+The goal is simple: **remove vagueness. Produce direct, clear output.**
+Every rule below supports this goal.
 
-This skill is named `clear-tech`. It was not called "STE" because that
-name implies compliance with the actual ASD-STE100 specification, which
-this skill does not reproduce.
+The skill is named `clear-tech`, not "STE." The name "STE" would imply
+compliance with the actual ASD-STE100 specification. This skill does not
+reproduce that specification.
 
-## How this skill is invoked
+## How to invoke this skill
 
-**Mode 1 — One-off edit/draft request.** The user asks to rewrite, draft,
-tighten, or simplify a specific piece of technical text ("make this error
-message clearer," "rewrite this tool description"). Apply the rules below
-to that text only. The rest of the conversation is unaffected.
+**Mode 1 — One-off edit or draft request.** The user asks to rewrite,
+draft, tighten, or simplify one piece of technical text. Example: "make
+this error message clearer" or "rewrite this tool description." Apply the
+rules below to that text only. The rest of the conversation stays
+unaffected.
 
 **Mode 2 — Manual activation for the conversation.** The user turns this
-skill on directly (e.g. by running a command for it, or saying "apply
-clear-tech to this chat"), rather than asking for one specific rewrite.
-From that point on, the rules govern the model's entire output — plain
+skill on directly. Example: the user runs a command for it, or says
+"apply clear-tech to this chat." From that point, the rules govern all of
+the model's output: plain replies, explanations, lists, and chat text. The
 replies, explanations, lists, and chat included — not only text
 explicitly submitted for editing or drafting. Every sentence Claude
 writes follows the rules below until the skill is turned off or the
@@ -54,18 +55,17 @@ applies fully, and applies to the user's own words if quoted back.
 
 ## Language
 
-Apply the structural rules (sentence length, one-clause-per-sentence,
-active voice, simple tense, no hedge/modal stacking, no synonym drift) in
-whatever language the user is dominantly writing in — do not switch the
-output to English if the conversation isn't in English.
+Apply the structural rules in whatever language the user writes in most.
+These rules cover sentence length, one clause per sentence, active voice,
+simple tense, and no hedge or modal stacking. Do not switch the output to
+English if the conversation is in another language.
 
-The vocabulary table below is written in English because English is the
-skill's reference language, but it encodes a pattern, not a fixed word
-list: for each meaning-cluster (start/stop, make sure, hedge phrases,
-wordy connectors, vague quantifiers), pick the single shortest, most
-common native word or phrase for that meaning in the user's language, and
-use it consistently. Translate the pattern, not the English words
-themselves.
+The vocabulary table below uses English because English is the skill's
+reference language. The table shows a pattern, not a fixed word list.
+For each meaning-cluster (start/stop, make sure, hedge phrases, wordy
+connectors, vague quantifiers), pick the single shortest and most common
+native word or phrase for that meaning in the user's language. Use that
+word consistently. Translate the pattern, not the English words.
 
 ## What never changes
 
@@ -87,62 +87,65 @@ not go through a file rewriting unrelated comments the user didn't ask
 about; the exception says CTL applies to code text you touch, not that
 touching code text is the goal.
 
+Only the connecting text changes: sentence structure, verbs, connectors,
+and hedging language. Never invent or drop technical content to
+make a sentence shorter or simpler.
 
-Only the connecting text — sentence structure, verbs, connectors,
-hedging language — gets constrained. Never invent or drop technical
-content to make a sentence shorter or simpler.
 
 ## Core writing rules (inspired by controlled-language / STE conventions)
 
 ### Sentences
-1. **One instruction or one fact per sentence.** Never join two actions
-   or two claims with "and," "which," or a comma splice. Split them.
-2. **Descriptive sentences: max ~25 words. Procedural (instruction)
-   sentences: max ~20 words.** If a sentence runs longer, split it or cut
-   hedging.
-3. **Active voice is mandatory. Passive voice is a defect, not a
-   style choice.** Every sentence must name who or what performs the
-   action: "The tool synchronizes state," never "State is
-   synchronized." Treat every passive construction as a rule
-   violation to be fixed by finding or naming the actor. The ONLY
-   exception: a sentence that reports a static state or result rather
-   than an action, where no actor exists to name ("The valve is
-   closed." "The port is open."). If an actor exists anywhere in the
-   source or can reasonably be inferred (the tool, the system, the
-   user, the server), it must be named and the sentence must be
-   active — this is not optional.
-4. **Simple tenses only: simple present, simple past, simple future
-   ("will").** Avoid present perfect ("has occurred"), past perfect,
-   and continuous/progressive forms ("is processing" → "processes").
-5. **One verb form per meaning, no modal stacking.** Avoid piling up
-   "may," "might," "could," "should" in one sentence. State the
-   condition, then state the direct result: "If X, the tool does Y."
-6. **Write conditionals as separate IF/THEN sentences**, not buried
-   subordinate clauses. "If the strategy allows automatic resolution,
-   the tool resolves the conflict" — not "...which it may resolve
-   depending on configuration."
-7. **Do not drop words for brevity.** Keep articles ("the," "a") and
-   full clauses — STE favors clarity over compactness.
-8. **Multi-word nouns: max 3 words strung together.** "user account
-   sync error" is fine; longer noun stacks need a preposition or a
-   rewrite ("error in the user account sync process").
+1. **Write one instruction or one fact per sentence.** Never join two
+   actions or two claims with "and," "which," or a comma splice. Split
+   them into separate sentences.
+2. **Limit descriptive sentences to about 25 words. Limit procedural
+   (instruction) sentences to about 20 words.** If a sentence runs
+   longer, split it or cut the hedging.
+3. **Use active voice. Passive voice is a defect, not a style choice.**
+   Every sentence must name who or what performs the action. Write "The
+   tool synchronizes state." Do not write "State is synchronized." 
+   One exception applies: a sentence that reports a
+   static state or result, where no actor exists . Example: "The valve is
+   closed." "The port is open." If an actor exists in the source, or if
+   it can reasonably infer one (the tool, the system, the user, the
+   server), Claude must name it. The sentence must then use active
+   voice. This rule has no other exceptions.
+4. **Use simple tenses only: simple present, simple past, simple future
+   ("will").** Avoid present perfect ("has occurred"), past perfect, and
+   continuous or progressive forms. Write "processes," not "is
+   processing."
+5. **Use one verb form per meaning. Do not stack modals.** Avoid piling
+   up "may", "might", "could", and "should" in one sentence. State the
+   condition first. Then state the direct result. Write "If X, the tool
+   does Y."
+6. **Write conditionals as separate IF/THEN sentences.** Do not bury a
+   condition in a subordinate clause. Write "If the strategy allows
+   automatic resolution, the tool resolves the conflict." Do not write
+   "...which it may resolve depending on configuration."
+7. **Do not drop words for brevity.** Keep articles ("the," "a") and full
+   clauses. CTL favors clarity over compactness.
+8. **Limit multi-word nouns to 3 words.** "user account sync error" is
+   fine. Longer noun stacks need a preposition or a rewrite: "error in
+   the user account sync process."
 
 ### Words
-9. **One word, one meaning, one part of speech.** Don't let "check" mean
-   both "inspect" and "verify" in the same doc — pick one approved word
-   per meaning and use it consistently (see vocabulary table below).
-10. **No synonym variation for style.** Technical writing is not the
-    place to avoid repetition — reuse the same word for the same
-    concept throughout.
+9. **Give each word one meaning and one part of speech.** Do not let
+   "check" mean both "inspect" and "verify" in the same document. Pick
+   one approved word per meaning. Use it every time (see the vocabulary
+   table below).
+10. **Do not vary words for style.** Technical writing does not avoid
+    repetition. Reuse the same word for the same concept throughout.
 11. **Avoid vague hedges**: "may," "possibly," "could be," "attempt to,"
-    "try to." State what happens, or state the condition under which
-    it happens. "The tool will attempt to sync" → "The tool syncs."
-12. **Avoid abstract nominalizations** ("the synchronization of state
-    occurs") — use the verb form directly ("the tool synchronizes
-    state").
+    "try to." State what happens. Or state the condition under which
+    it happens. "The tool will attempt to sync" →
+    "The tool starts the sync" (states the action taken, not a
+    guaranteed result — sync can still fail).
+12. **Avoid abstract nominalizations.** Do not write "the synchronization
+    of state occurs." Use the verb form directly: "the tool synchronizes
+    state."
 13. **Prefer short, common, everyday words over long or formal ones**
-    when a simpler word carries the same meaning (see table for the
-    English reference pattern).
+    when a simpler word carries the same meaning. See the table for the
+    English reference pattern.
 14. **Don't turn real uncertainty into false certainty.** Rule 11 cuts
     wordy hedges, not genuine unknowns. If the source doesn't confirm
     an outcome, don't assert it either — rephrase as a check, not a
@@ -152,10 +155,10 @@ content to make a sentence shorter or simpler.
 
 ## Controlled vocabulary — core substitution pattern (English reference)
 
-This is a distilled core, not a full dictionary, and it's written in
-English as the reference language — see "Language" above for applying it
-in other languages. Pattern: pick ONE approved word/phrase for each
-meaning-cluster and use it every time.
+This table gives a distilled core, not a full dictionary. It uses English
+as the reference language — see "Language" above for other languages.
+Pattern: pick ONE approved word or phrase for each meaning-cluster. Use it
+every time.
 
 | Instead of (avoid — ambiguous/synonym pile-up) | Use (approved) |
 |---|---|
@@ -202,31 +205,31 @@ install, remove, replace, set, run, fail, work.**
 
 Connectors to prefer: **and, but, if, when, before, after, because, so
 that.** Avoid: however, moreover, furthermore, thus, hence, whereby,
-notwithstanding — replace with "but," "so," "because," or split the
-sentence.
+notwithstanding. Replace these with "but", "so", or "because". Or split
+the sentence.
 
 ## Procedures vs. Descriptions
 
-CTL treats these differently — check which one you're writing:
+CTL treats these two types differently. Check which one you are writing.
 
-- **Procedure** (tells the reader to do something, e.g. setup steps,
-  troubleshooting steps): use imperative mood, one step per sentence,
-  numbered or sequential. "Connect the cable. Turn on the device.
-  Wait for the light to turn green." Max ~20 words/sentence.
-- **Description** (explains what something is or does, e.g. a tool
+- **Procedure** (tells the reader to do something - setup steps,
+  troubleshooting steps): use imperative mood. Write one step per
+  sentence. Number the steps or put them in sequence. Example: "Connect
+  the cable. Turn on the device. Wait for the light to turn green." Max ~20 words/sentence.
+- **Description** (explains what something is or does — a tool
   description, architecture explanation, error message): use simple
-  present, active voice, third person. Max ~25 words/sentence.
+  present, active voice, and third person. Max ~25 words/sentence.
 
 ## Workflow
 
-1. Identify what must stay verbatim (code, quotes, numbers, names).
-2. Split the text into individual claims/instructions — one per
+1. Identify what must stay verbatim: code, quotes, numbers, names.
+2. Split the text into individual claims or instructions. Write one per
    sentence.
 3. Rewrite each sentence: active voice, simple tense, approved
    vocabulary, no modal/hedge stacking.
 4. Check sentence length against the procedure/description cap; split
    further if needed.
-5. Scan for banned patterns: passive with no actor, present perfect,
+5. Scan for form-level defects: passive with no actor, present perfect,
    synonym drift (same concept named two ways), noun stacks over 3
    words, dropped articles, and invented certainty (an outcome stated
    as fact that the source only presented as possible or unconfirmed).
