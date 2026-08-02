@@ -23,10 +23,10 @@ description: >-
 This skill rewrites or writes technical text in Clear Technical Language
 (CTL). CTL applies to descriptions, procedures, error messages, and other
 docs. Maintenance and technical writers use a similar controlled-language
-method (Simplified Technical English / ASD-STE100). This skill takes that
-method and adapts it for general technical writing. This skill does not
-copy the official ASD-STE100 specification or dictionary. This skill
-works in any language, not only English.
+method: Simplified Technical English (ASD-STE100). This skill adapts that
+method for general technical writing. This skill does not copy the
+official ASD-STE100 specification or dictionary. This skill works in any
+language, not only English.
 
 The goal is simple: **remove vagueness. Produce direct, clear output.**
 Every rule below supports this goal.
@@ -45,13 +45,13 @@ unaffected.
 
 **Mode 2 — Manual activation for the conversation.** The user turns this
 skill on directly. Example: the user runs a command for it, or says
-"apply clear-tech to this chat." From that point, the rules govern all of
-the model's output: plain replies, explanations, lists, and chat text. The
-replies, explanations, lists, and chat included — not only text
-explicitly submitted for editing or drafting. Every sentence you
+"apply clear-tech to this chat." From that point, the rules govern all
+model output: plain replies, explanations, lists, and chat text. The
+rules apply to replies, explanations, lists, and chat. The rules are not
+limited to text submitted for editing or drafting. Every sentence you
 write follows the rules below until the skill is turned off or the
-conversation ends. The "What never changes" preservation list still
-applies fully, and applies to the user's own words if quoted back.
+conversation ends. The "What never changes" list still applies in full.
+It also applies to the user's own words if you quote them back.
 
 ## Language
 
@@ -65,12 +65,12 @@ reference language. The table shows a pattern, not a fixed word list.
 For each meaning-cluster (start/stop, make sure, hedge phrases, wordy
 connectors, vague quantifiers), pick the single shortest and most common
 native word or phrase for that meaning in the user's language. Use that
-word consistently. Translate the pattern, not the English words.
+word every time. Translate the pattern, not the English words.
 
 ## What never changes
 
-Before rewriting anything, identify and freeze these — copy them verbatim,
-do not simplify or paraphrase them:
+Before you rewrite anything, find and freeze these. Copy them verbatim.
+Do not simplify or paraphrase them:
 
 - Code blocks, inline code, commands, file paths and names, flags, config keys
 - Exact quotes (from people, specs, logs, error strings)
@@ -78,49 +78,47 @@ do not simplify or paraphrase them:
 - Any technical fact, value, or claim in the source
 
 **Exception — code and docstrings.** This exception applies only when
-writing or editing code is already part of the task — refactoring a
-function, adding a docstring, writing new code, or directly rewriting an
-existing comment. Comments and docstrings are text for the reader, not
-code the machine parses, so CTL rules apply to them. Only the code
-itself — the part that executes or is machine-parsed — stays frozen. Do
-not go through a file rewriting unrelated comments the user didn't ask
-about; the exception says CTL applies to code text you touch, not that
-touching code text is the goal.
+writing or editing code is already part of the task: refactoring a
+function, adding a docstring, writing new code, or rewriting an existing
+comment. Comments and docstrings are text for the reader. The machine
+does not parse them. So CTL rules apply to them. Only the code itself —
+the part that executes or is machine-parsed — stays frozen. Do not go
+through a file and rewrite unrelated comments the user did not ask
+about. The exception says CTL applies to code text you touch. It does
+not say that touching code text is the goal.
 
 ## The fidelity invariant
 
 Every rule below changes **form**: sentence structure, tense, voice,
-word choice, connectors. No rule ever changes **content**: what is
-claimed, who or what is doing it, how certain it is, or how much
-territory it covers. If applying a rule would touch content, the rule
-is being applied wrong — find a phrasing that satisfies the rule without
-it.
+word choice, connectors. No rule changes **content**: what is claimed,
+who or what does it, how certain it is, or how much territory it
+covers. If a rule would change content, you are applying the rule
+wrong. Find a phrasing that satisfies the rule without changing the content.
 
-Before finishing a rewrite, check each sentence against the source with
+Before you finish a rewrite, check each sentence against the source with
 one question: *does it claim exactly the same thing, about the same
 actor, with the same certainty and the same scope — just in clearer
 form?* If not, fix the rewrite, not the check.
 
-This one invariant is what several specific rules below are testing
-for. Three recurring ways content sneaks in during a rewrite:
+This one invariant is what several specific rules below test for. Three
+recurring ways content sneaks into a rewrite:
 
-- **A named actor appears that the source didn't name.** Active voice
-  (rule 3) requires *an* actor, not *a new one*. If the source used an
+- **A named actor appears that the source did not name.** Active voice
+  (rule 3) needs *an* actor, not *a new one*. If the source used an
   implied or generic addressee, keep it generic.
-- **Certainty appears that the source didn't have.** Cutting a hedge
-  (rule 11) removes wordiness, not doubt. If the source didn't confirm
-  an outcome, the rewrite can't confirm it either.
+- **Certainty appears that the source did not have.** Cutting a hedge
+  (rule 11) removes wordiness. It does not remove doubt. If the source
+  did not confirm an outcome, the rewrite must not confirm it either.
 - **A split sentence claims more than its source clause did.** Splitting
-  (rule 1) must preserve what each resulting sentence asserts. A clause
-  built from a contrast ("X, not Y, so Z") is one claim; pulling "not Y"
-  out into its own sentence can turn a defining detail into a broader,
-  independent claim it was never meant to be.
-
+  (rule 1) must keep what each resulting sentence asserts the same. A
+  clause built from a contrast ("X, not Y, so Z") is one claim. Pulling
+  "not Y" out into its own sentence can turn a defining detail into a
+  broader, independent claim. The source never made that broader claim.
 
 ## Core writing rules (inspired by controlled-language / STE conventions)
 
 ### Sentences
-1. **Write one instruction or one fact per sentence.** Never join two
+1. **Write one instruction or one fact per sentence.** Do not join two
    actions or two claims with "and," "which," or a comma splice. Split
    them into separate sentences.
 2. **Limit descriptive sentences to about 25 words. Limit procedural
@@ -128,19 +126,19 @@ for. Three recurring ways content sneaks in during a rewrite:
    longer, split it or cut the hedging.
 3. **Use active voice. Passive voice is a defect, not a style choice.**
    Every sentence must name who or what performs the action. Write "The
-   tool synchronizes state." Do not write "State is synchronized."
-   One exception applies: a sentence that reports a static state or
-   result, where no actor exists. Example: "The valve is closed." The
-   actor must exist in the source, or be reasonably inferred from it
-   (the tool, the system, the user, the server, an implied "you"). Name
-   that actor and use active voice. Never invent a new actor — see the
+   tool synchronizes state." Do not write "State is synchronized." One
+   exception applies: a sentence that reports a static state or result,
+   where no actor exists. Example: "The valve is closed." The actor
+   must exist in the source, or come from a reasonable inference (the
+   tool, the system, the user, the server, an implied "you"). Name that
+   actor and use active voice. Never invent a new actor. See the
    fidelity invariant above.
 4. **Use simple tenses only: simple present, simple past, simple future
    ("will").** Avoid present perfect ("has occurred"), past perfect, and
    continuous or progressive forms. Write "processes," not "is
    processing."
-5. **Use one verb form per meaning. Do not stack modals.** Avoid piling
-   up "may", "might", "could", and "should" in one sentence. State the
+5. **Use one verb form per meaning. Do not stack modals.** Do not pile
+   up "may," "might," "could," and "should" in one sentence. State the
    condition first. Then state the direct result. Write "If X, the tool
    does Y."
 6. **Write conditionals as separate IF/THEN sentences.** Do not bury a
@@ -156,15 +154,15 @@ for. Three recurring ways content sneaks in during a rewrite:
 ### Words
 9. **Give each word one meaning and one part of speech.** Do not let
    "check" mean both "inspect" and "verify" in the same document. Pick
-   one approved word per meaning. Use it every time (see the vocabulary
-   table below).
+   one approved word per meaning. Use it every time. See the vocabulary
+   table below.
 10. **Do not vary words for style.** Technical writing does not avoid
-    repetition. Reuse the same word for the same concept throughout.
+    repetition. Reuse the same word for the same concept every time.
 11. **Avoid vague hedges**: "may," "possibly," "could be," "attempt to,"
-    "try to." State what happens. Or state the condition under which
-    it happens. "The tool will attempt to sync" →
-    "The tool starts the sync" (states the action taken, not a
-    guaranteed result — sync can still fail).
+    "try to." State what happens. Or state the condition under which it
+    happens. "The tool will attempt to sync" → "The tool starts the
+    sync." This states the action taken. It does not state a guaranteed
+    result, because the sync can still fail.
 12. **Avoid abstract nominalizations.** Do not write "the synchronization
     of state occurs." Use the verb form directly: "the tool synchronizes
     state."
@@ -174,10 +172,10 @@ for. Three recurring ways content sneaks in during a rewrite:
 
 ## Controlled vocabulary — core substitution pattern (English reference)
 
-This table gives a distilled core, not a full dictionary. It uses English
-as the reference language — see "Language" above for other languages.
-Pattern: pick ONE approved word or phrase for each meaning-cluster. Use it
-every time.
+This table gives a distilled core, not a full dictionary. It uses
+English as the reference language. See "Language" above for other
+languages. Pattern: pick ONE approved word or phrase for each
+meaning-cluster. Use it every time.
 
 | Instead of (avoid — ambiguous/synonym pile-up) | Use (approved) |
 |---|---|
@@ -227,14 +225,14 @@ install, remove, replace, set, run, fail, work.**
 
 Connectors to prefer: **and, but, if, when, before, after, because, so
 that.** Avoid: however, moreover, furthermore, thus, hence, whereby,
-notwithstanding. Replace these with "but", "so", or "because". Or split
-the sentence.
+notwithstanding. Replace these words with "but", "so", or "because". Or
+split the sentence.
 
 ## Procedures vs. Descriptions
 
-CTL treats these two types differently. Check which one you are writing.
+CTL treats these two types differently. Check which one you write.
 
-- **Procedure** (tells the reader to do something - setup steps,
+- **Procedure** (tells the reader to do something — setup steps,
   troubleshooting steps): use imperative mood. Write one step per
   sentence. Number the steps or put them in sequence. Example: "Connect
   the cable. Turn on the device. Wait for the light to turn green." Max ~20 words/sentence.
@@ -244,21 +242,21 @@ CTL treats these two types differently. Check which one you are writing.
 
 ## Workflow
 
-1. Identify what must stay verbatim: code, quotes, numbers, names.
+1. Find what must stay verbatim: code, quotes, numbers, names.
 2. Split the text into individual claims or instructions. Write one per
    sentence.
 3. Rewrite each sentence: active voice, simple tense, approved
-   vocabulary, no modal/hedge stacking.
-4. Check sentence length against the procedure/description cap; split
-   further if needed.
+   vocabulary, no modal or hedge stacking.
+4. Check each sentence length against the procedure/description cap.
+   Split further if needed.
 5. Scan for form-level defects: passive with no actor, present perfect,
    synonym drift (same concept named two ways), noun stacks over 3
    words, dropped articles. Then run the fidelity invariant check on
    every sentence: same claim, same actor, same certainty, same scope
    as the source.
-6. Output the rewritten text only — plus preserved code/quotes/facts,
-   unchanged, in place. Do not add before/after comparisons, tables,
-   violation lists, or explanations of what was changed. Produce a
-   comparison ONLY if the user's own request explicitly asked for
-   one — that comparison is then answering their explicit request,
-   not a default behavior of this skill.
+6. Output the rewritten text only, plus preserved code, quotes, and
+   facts, unchanged, in place. Do not add before/after comparisons,
+   tables, violation lists, or explanations of what changed. Produce a
+   comparison only if the user's own request asked for one. That
+   comparison then answers their explicit request. It is not a default
+   behavior of this skill.
