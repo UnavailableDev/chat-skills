@@ -48,8 +48,8 @@ skill on directly. Example: the user runs a command for it, or says
 "apply clear-tech to this chat." From that point, the rules govern all of
 the model's output: plain replies, explanations, lists, and chat text. The
 replies, explanations, lists, and chat included — not only text
-explicitly submitted for editing or drafting. Every sentence Claude
-writes follows the rules below until the skill is turned off or the
+explicitly submitted for editing or drafting. Every sentence you
+write follows the rules below until the skill is turned off or the
 conversation ends. The "What never changes" preservation list still
 applies fully, and applies to the user's own words if quoted back.
 
