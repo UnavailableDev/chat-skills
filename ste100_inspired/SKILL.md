@@ -87,9 +87,34 @@ not go through a file rewriting unrelated comments the user didn't ask
 about; the exception says CTL applies to code text you touch, not that
 touching code text is the goal.
 
-Only the connecting text changes: sentence structure, verbs, connectors,
-and hedging language. Never invent or drop technical content to
-make a sentence shorter or simpler.
+## The fidelity invariant
+
+Every rule below changes **form**: sentence structure, tense, voice,
+word choice, connectors. No rule ever changes **content**: what is
+claimed, who or what is doing it, how certain it is, or how much
+territory it covers. If applying a rule would touch content, the rule
+is being applied wrong — find a phrasing that satisfies the rule without
+it.
+
+Before finishing a rewrite, check each sentence against the source with
+one question: *does it claim exactly the same thing, about the same
+actor, with the same certainty and the same scope — just in clearer
+form?* If not, fix the rewrite, not the check.
+
+This one invariant is what several specific rules below are testing
+for. Three recurring ways content sneaks in during a rewrite:
+
+- **A named actor appears that the source didn't name.** Active voice
+  (rule 3) requires *an* actor, not *a new one*. If the source used an
+  implied or generic addressee, keep it generic.
+- **Certainty appears that the source didn't have.** Cutting a hedge
+  (rule 11) removes wordiness, not doubt. If the source didn't confirm
+  an outcome, the rewrite can't confirm it either.
+- **A split sentence claims more than its source clause did.** Splitting
+  (rule 1) must preserve what each resulting sentence asserts. A clause
+  built from a contrast ("X, not Y, so Z") is one claim; pulling "not Y"
+  out into its own sentence can turn a defining detail into a broader,
+  independent claim it was never meant to be.
 
 
 ## Core writing rules (inspired by controlled-language / STE conventions)
@@ -103,13 +128,13 @@ make a sentence shorter or simpler.
    longer, split it or cut the hedging.
 3. **Use active voice. Passive voice is a defect, not a style choice.**
    Every sentence must name who or what performs the action. Write "The
-   tool synchronizes state." Do not write "State is synchronized." 
-   One exception applies: a sentence that reports a
-   static state or result, where no actor exists . Example: "The valve is
-   closed." "The port is open." If an actor exists in the source, or if
-   it can reasonably infer one (the tool, the system, the user, the
-   server), Claude must name it. The sentence must then use active
-   voice. This rule has no other exceptions.
+   tool synchronizes state." Do not write "State is synchronized."
+   One exception applies: a sentence that reports a static state or
+   result, where no actor exists. Example: "The valve is closed." The
+   actor must exist in the source, or be reasonably inferred from it
+   (the tool, the system, the user, the server, an implied "you"). Name
+   that actor and use active voice. Never invent a new actor — see the
+   fidelity invariant above.
 4. **Use simple tenses only: simple present, simple past, simple future
    ("will").** Avoid present perfect ("has occurred"), past perfect, and
    continuous or progressive forms. Write "processes," not "is
@@ -146,12 +171,6 @@ make a sentence shorter or simpler.
 13. **Prefer short, common, everyday words over long or formal ones**
     when a simpler word carries the same meaning. See the table for the
     English reference pattern.
-14. **Don't turn real uncertainty into false certainty.** Rule 11 cuts
-    wordy hedges, not genuine unknowns. If the source doesn't confirm
-    an outcome, don't assert it either — rephrase as a check, not a
-    fact. "hold the button to see if that resets it" → "Hold the
-    button. Check if the device powers on." — not "The device
-    resets."
 
 ## Controlled vocabulary — core substitution pattern (English reference)
 
@@ -234,8 +253,9 @@ CTL treats these two types differently. Check which one you are writing.
    further if needed.
 5. Scan for form-level defects: passive with no actor, present perfect,
    synonym drift (same concept named two ways), noun stacks over 3
-   words, dropped articles, and invented certainty (an outcome stated
-   as fact that the source only presented as possible or unconfirmed).
+   words, dropped articles. Then run the fidelity invariant check on
+   every sentence: same claim, same actor, same certainty, same scope
+   as the source.
 6. Output the rewritten text only — plus preserved code/quotes/facts,
    unchanged, in place. Do not add before/after comparisons, tables,
    violation lists, or explanations of what was changed. Produce a
