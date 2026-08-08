@@ -16,6 +16,7 @@ description: >-
   activation for the conversation — applies to ALL model output until
   turned off. Preserves code, quotes, and facts exactly. Output is the
   rewritten text only, no tables or comparisons unless asked.
+  version: 0.1.1
 ---
 
 # Clear Tech — Clear Technical Language for Technical Content

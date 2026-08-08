@@ -1,6 +1,7 @@
 ---
 name: ponder
 description: Handles the /ponder command. When a paragraph in the user's message is prefixed with /ponder, that paragraph contains a claim, fact, or assumption the user is personally unsure of and wants checked — not just accepted at face value. Always use this skill whenever a message contains "/ponder", regardless of what else is in the prompt or what other skills are also active. Trigger on the literal token /ponder anywhere in the message, even mid-message or on just one paragraph among several.
+version: 0.2.0
 ---
 
 # Ponder
